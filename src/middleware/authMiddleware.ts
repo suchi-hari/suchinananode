@@ -16,6 +16,7 @@ export const verifyToken = (req: AuthRequest, res: Response, next: NextFunction)
     try {
         // ✅ Fix here: cast JWT_SECRET to string
         const decoded = jwt.verify(token, process.env.JWT_SECRET as string);
+        //console.log("Decoded token:", decoded);
         req.user = decoded;
         next();
     } catch (err) {

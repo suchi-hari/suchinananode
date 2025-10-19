@@ -16,6 +16,7 @@ const verifyToken = (req, res, next) => {
     try {
         // ✅ Fix here: cast JWT_SECRET to string
         const decoded = jsonwebtoken_1.default.verify(token, process.env.JWT_SECRET);
+        console.log("Decoded token:", decoded);
         req.user = decoded;
         next();
     }
