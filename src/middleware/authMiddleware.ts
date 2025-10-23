@@ -14,9 +14,8 @@ export const verifyToken = (req: AuthRequest, res: Response, next: NextFunction)
         return res.status(401).json({ message: "Access denied. No token provided." });
     }
     try {
-        // ✅ Fix here: cast JWT_SECRET to string
+        // Fix here: cast JWT_SECRET to string
         const decoded = jwt.verify(token, process.env.JWT_SECRET as string);
-        //console.log("Decoded token:", decoded);
         req.user = decoded;
         next();
     } catch (err) {

@@ -32,7 +32,7 @@ export const updateCategory = async (req: Request, res: Response) => {
     try {
         const { id } = req.params;
         const updateReq = req.body;
-        //console.log(updateReq);
+        console.log(updateReq);
         if (!ObjectId.isValid(id)) {
             return res.json({ message: "Invalid Category Id" });
         }
